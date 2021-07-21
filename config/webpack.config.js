@@ -8,7 +8,7 @@ module.exports = function (env) {
   return {
     name: 'client',
     entry: {
-      client: path.resolve(__dirname, '../src/index.tsx'),
+      client: path.resolve(__dirname, '../src/client/index.tsx'),
     },
     mode: isProduction ? 'production' : 'development',
     devtool: isProduction ? 'source-map' : 'eval',
