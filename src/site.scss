@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Hind';
+  src: local('Hind Bold'), local('Hind-Bold'),
+  url('./assets/fonts/Hind-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hind';
+  src: local('Hind SemiBold'), local('Hind-SemiBold'),
+  url('./assets/fonts/Hind-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hind';
+  src: local('Hind Medium'), local('Hind-Medium'),
+  url('./assets/fonts/Hind-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hind';
+  src: local('Hind'), local('Hind-Regular'),
+  url('./assets/fonts/Hind-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hind';
+  src: local('Hind Light'), local('Hind-Light'),
+  url('./assets/fonts/Hind-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Hind', -apple-system, system-ui, BlinkMacSystemFont,
+  'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol';
+}
