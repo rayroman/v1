@@ -1,5 +1,14 @@
 import * as React from 'react';
+import classNames from 'classnames';
+import styles from './App.module.scss';
+import { Title } from './components/Title';
 
 export function App(): JSX.Element {
-  return <div>Hello, world</div>;
+  return (
+    <div className={styles.root}>
+      <Title className={styles.root__title}>
+        Ray Roman
+      </Title>
+    </div>
+  );
 }
