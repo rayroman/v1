@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "",
   "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development webpack serve --open --config config/webpack.config.js"
+  },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.8",
