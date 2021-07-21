@@ -1,7 +1,13 @@
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const babelOptions = require('./babel.config.js');
+
+if (!fs.existsSync(path.resolve(__dirname, '../dist/t.txt'))) {
+  console.error('File does not exist');
+  return;
+}
 
 module.exports = function (env) {
   const isProduction = !!env.production;
