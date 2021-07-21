@@ -4,8 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const babelOptions = require('./babel.config.js');
 
-if (!fs.existsSync(path.resolve(__dirname, '../dist/t.txt'))) {
-  console.error('File does not exist');
+const templatePath = path.resolve(__dirname, '../dist/template.html');
+
+if (!fs.existsSync(templatePath)) {
+  console.error('[Build] Template does not exist');
   return;
 }
 
@@ -75,7 +77,7 @@ module.exports = function (env) {
     plugins: [
       new MiniCssExtractPlugin({ filename: isProduction ? '[name].[contenthash:8].css' : '[name].css' }),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, '../src/assets/template.html'),
+        template: templatePath,
         title: 'Ray Roman · Front end engineer, React, and TypeScript enthusiast',
       }),
     ],

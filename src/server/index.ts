@@ -2,7 +2,9 @@ import * as React from 'react';
 import * as ReactDOMServer from 'react-dom/server';
 import * as fs from 'fs';
 import * as path from 'path';
+import unescape from 'lodash/unescape';
 import { App } from '../client/App';
+import { Html } from './Html';
 
 const DOCTYPE_HTML = '<!DOCTYPE html>';
 
@@ -12,10 +14,14 @@ if (!fs.existsSync(distFolder)) {
 }
 
 fs.promises.writeFile(
-  path.resolve(distFolder, './t.txt'),
-  DOCTYPE_HTML + ReactDOMServer.renderToStaticMarkup(
-    React.createElement(App)
-  )
+  path.resolve(distFolder, './template.html'),
+  unescape(DOCTYPE_HTML + ReactDOMServer.renderToStaticMarkup(
+    React.createElement(
+      Html,
+      null,
+      React.createElement(App),
+    ),
+  )),
 ).then(() => {
   console.log('write success');
   process.exit(0);
