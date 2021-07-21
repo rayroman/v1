@@ -14,7 +14,7 @@ module.exports = function (env) {
     devtool: isProduction ? 'source-map' : 'eval',
     output: {
       path: path.resolve(__dirname, '../dist'),
-      filename: isProduction ? '[name].[contenthash:8][ext]' : '[name][ext]',
+      filename: isProduction ? '[name].[contenthash:8].js' : '[name].js',
       publicPath: '/',
     },
     devServer: isProduction ? undefined : {
@@ -55,12 +55,22 @@ module.exports = function (env) {
             options: babelOptions,
           },
         },
+        {
+          test: /\.(ttf|otf)$/i,
+          type: 'asset/resource',
+          generator: {
+            // Don't prepend `static` since that's already part of the output
+            // path.
+            filename: 'fonts/[hash:8][ext]',
+          },
+        },
       ]
     },
     plugins: [
-      new MiniCssExtractPlugin({ filename: isProduction ? '[name].css' : '[name].[contenthash:8].css' }),
+      new MiniCssExtractPlugin({ filename: isProduction ? '[name].[contenthash:8].css' : '[name].css' }),
       new HtmlWebpackPlugin({
-        title: 'Ray Roman · Front end engineer, React, and TypeScript enthusiast'
+        template: path.resolve(__dirname, '../src/assets/template.html'),
+        title: 'Ray Roman · Front end engineer, React, and TypeScript enthusiast',
       }),
     ],
   }
