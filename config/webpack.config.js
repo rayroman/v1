@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const babelOptions = require('./babel.config.js');
 
@@ -15,6 +16,9 @@ module.exports = function (env) {
       path: path.resolve(__dirname, '../dist'),
       filename: isProduction ? '[name].[contenthash:8][ext]' : '[name][ext]',
       publicPath: '/',
+    },
+    devServer: isProduction ? undefined : {
+      contentBase: path.resolve(__dirname, '../dist'),
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
@@ -55,6 +59,9 @@ module.exports = function (env) {
     },
     plugins: [
       new MiniCssExtractPlugin({ filename: isProduction ? '[name].css' : '[name].[contenthash:8].css' }),
+      new HtmlWebpackPlugin({
+        title: 'Ray Roman · Front end engineer, React, and TypeScript enthusiast'
+      }),
     ],
   }
 };
