@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const babelOptions = require('./babel.config.js');
 
 module.exports = function (env) {
@@ -22,6 +23,27 @@ module.exports = function (env) {
     module: {
       rules: [
         {
+          test: /\.s[ac]ss$/i,
+          use: [
+            MiniCssExtractPlugin.loader,
+            // Translates CSS into CommonJS
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                esModule: true,
+                modules: {
+                  namedExport: true,
+                  exportLocalsConvention: 'dashesOnly',
+                  localIdentName: isProduction ? '[contenthash:8]' : '[path][name]__[local]',
+                },
+              },
+            },
+            // Compiles Sass to CSS
+            'sass-loader',
+          ],
+        },
+        {
           test: /\.tsx?$/,
           exclude: /node_modules/,
           use: {
@@ -30,6 +52,9 @@ module.exports = function (env) {
           },
         },
       ]
-    }
+    },
+    plugins: [
+      new MiniCssExtractPlugin({ filename: isProduction ? '[name].css' : '[name].[contenthash:8].css' }),
+    ],
   }
 };
