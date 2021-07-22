@@ -8,7 +8,8 @@ import { Html } from './Html';
 
 const DOCTYPE_HTML = '<!DOCTYPE html>';
 
-const distFolder = path.resolve(__dirname, '../../dist');
+// Root file is from `./dist'
+const distFolder = path.resolve(__dirname, '../dist');
 if (!fs.existsSync(distFolder)) {
   fs.mkdirSync(distFolder);
 }
