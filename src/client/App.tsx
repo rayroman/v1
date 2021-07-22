@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import * as styles from './App.module.scss';
 import { Title } from './components/Title';
 
