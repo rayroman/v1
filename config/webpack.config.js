@@ -78,7 +78,7 @@ module.exports = function (env) {
       new MiniCssExtractPlugin({ filename: isProduction ? '[name].[contenthash:8].css' : '[name].css' }),
       new HtmlWebpackPlugin({
         template: templatePath,
-        title: 'Ray Roman · Front end engineer, React, and TypeScript enthusiast',
+        title: 'Test SSR page',
       }),
     ],
   }

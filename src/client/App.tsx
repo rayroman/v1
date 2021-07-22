@@ -6,7 +6,7 @@ export function App(): JSX.Element {
   return (
     <div className={styles.root}>
       <Title className={styles.root__title}>
-        Ray Roman
+        Hello, world
       </Title>
     </div>
   );
