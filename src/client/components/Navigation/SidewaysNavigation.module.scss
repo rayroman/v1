@@ -31,17 +31,20 @@ $nav-height: 40px;
 .root__link-container {
   // Vertical padding is switched when the text direction is switched
   // via the text direction prop
-  padding: 20px 0;
+  padding: 32px 0;
 }
 
 .root__link-container {
   position: relative;
-  display: flex;
-  align-items: center;
 
   &::after {
+    display: flex;
+    align-items: center;
     position: absolute;
     left: 0;
+    right: 0;
+    color: map_get(theme.$greys, 700);
+    font-size: 75%;
   }
 
   &::after {
