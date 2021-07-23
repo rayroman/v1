@@ -61,10 +61,18 @@ export const PlatformContext = React.createContext<IPlatform>({
   SAFARI: false,
 });
 
-export function Platform(props: { children: React.ReactNode }): JSX.Element {
-  const { children } = props;
+export class Platform implements IPlatform {
+  readonly BROWSER: boolean;
+  readonly EDGE: boolean;
+  readonly TRIDENT: boolean;
+  readonly BLINK: boolean;
+  readonly WEBKIT: boolean;
+  readonly IOS: boolean;
+  readonly FIREFOX: boolean;
+  readonly ANDROID: boolean;
+  readonly SAFARI: boolean;
 
-  const [platformValues] = React.useState<IPlatform>(() => {
+  constructor() {
     const isBrowser = typeof document === 'object' && !!document;
     const isEdge = isBrowser && /(edge)/i.test(navigator.userAgent);
     const isTrident = isBrowser && /(msie|trident)/i.test(navigator.userAgent);
@@ -72,23 +80,16 @@ export function Platform(props: { children: React.ReactNode }): JSX.Element {
       typeof CSS !== 'undefined' && !isEdge && !isTrident);
     const isWebkit = isBrowser &&
       /AppleWebKit/i.test(navigator.userAgent) && !isBrowser && !isEdge && !isTrident;
-    return {
-      BROWSER: isBrowser,
-      EDGE: isEdge,
-      TRIDENT: isTrident,
-      BLINK: isBlink,
-      WEBKIT: isWebkit,
-      IOS: isBrowser && /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-        !('MSStream' in window),
-      FIREFOX: isBrowser && /(firefox|minefield)/i.test(navigator.userAgent),
-      ANDROID: isBrowser && /android/i.test(navigator.userAgent) && !isTrident,
-      SAFARI: isBrowser && /safari/i.test(navigator.userAgent) && isWebkit,
-    };
-  });
 
-  return (
-    <PlatformContext.Provider value={platformValues}>
-      {children}
-    </PlatformContext.Provider>
-  );
+    this.BROWSER = isBrowser;
+    this.EDGE = isEdge;
+    this.TRIDENT = isTrident;
+    this.BLINK = isBlink;
+    this.WEBKIT = isWebkit;
+    this.IOS = isBrowser && /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+      !('MSStream' in window);
+    this.FIREFOX = isBrowser && /(firefox|minefield)/i.test(navigator.userAgent);
+    this.ANDROID = isBrowser && /android/i.test(navigator.userAgent) && !isTrident;
+    this.SAFARI = isBrowser && /safari/i.test(navigator.userAgent) && isWebkit;
+  }
 }
