@@ -27,3 +27,8 @@ $nav-width: 60px;
     margin-right: $nav-width;
   }
 }
+
+.root__body {
+  display: flex;
+  min-height: 100vh;
+}

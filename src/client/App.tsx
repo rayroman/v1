@@ -1,10 +1,19 @@
 import * as React from 'react';
 import * as styles from './App.module.scss';
-import { Title } from './components/Title';
 import { Provider } from './components/Provider';
 import { SidewaysNavigation, SidewaysNavLink } from './components/Navigation/SidewaysNavigation';
 
 export function App(): JSX.Element {
+  const [rendered, setRendered] = React.useState(false);
+
+  React.useEffect(() => {
+    setRendered(true);
+
+    return () => {
+      setRendered(false);
+    };
+  }, [setRendered]);
+
   return (
     <Provider>
       <div className={styles.root}>
@@ -24,6 +33,11 @@ export function App(): JSX.Element {
             Info here
           </div>
         </div>
+        {rendered ? (
+          <div>
+            Navigate to main content
+          </div>
+        ) : null}
       </div>
     </Provider>
   );
