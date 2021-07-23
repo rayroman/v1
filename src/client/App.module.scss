@@ -3,7 +3,7 @@ $nav-width: 60px;
 
 .root {
   background-color: #DFDFDF;
-  color: map_get(theme.$colors, "navy");
+  color: map_get(theme.$greys, 900);
   min-height: 100vh;
 }
 
