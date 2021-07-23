@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOMServer from 'react-dom/server';
 import * as fs from 'fs';
 import * as path from 'path';
+import { StaticRouter } from 'react-router-dom';
 import unescape from 'lodash/unescape';
 import { App } from '../client/App';
 import { Html } from './Html';
@@ -20,7 +21,11 @@ fs.promises.writeFile(
     React.createElement(
       Html,
       null,
-      React.createElement(App),
+      React.createElement(
+        StaticRouter,
+        null,
+        React.createElement(App),
+      ),
     ),
   )),
 ).then(() => {
