@@ -1,8 +1,9 @@
+@use './colors' as theme;
 $nav-width: 60px;
 
 .root {
   background-color: #DFDFDF;
-  color: #444;
+  color: map_get(theme.$colors, "navy");
   min-height: 100vh;
 }
 

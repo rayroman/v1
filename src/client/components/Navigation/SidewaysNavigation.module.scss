@@ -1,3 +1,5 @@
+@use '../../colors' as theme;
+
 $nav-height: 40px;
 
 .root {
@@ -26,13 +28,13 @@ $nav-height: 40px;
   flex-direction: row-reverse;
 }
 
-.root_link-container {
+.root__link-container {
   // Vertical padding is switched when the text direction is switched
   // via the text direction prop
   padding: 20px 0;
 }
 
-.root_link-container {
+.root__link-container {
   position: relative;
   display: flex;
   align-items: center;
@@ -53,11 +55,16 @@ $nav-height: 40px;
   }
 }
 
-.root_link-container + .root_link-container::after {
+.root__link-container + .root__link-container::after {
   content: '/';
 }
 
-.root_link-container {
+.root__link-container {
   transform-origin: center;
   transform: rotate(180deg);
+}
+
+.root__link {
+  color: map_get(theme.$colors, "navy");
+  text-decoration: none;
 }

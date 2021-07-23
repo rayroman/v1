@@ -27,7 +27,7 @@ type LinkScrollState = {
 export function SidewaysNavLink(props: LinkProps<LinkScrollState>): JSX.Element {
   const { children, to, className } = props;
   return (
-    <span className={styles.root_linkContainer}>
+    <span className={styles.root__linkContainer}>
       <Link to={to} className={classNames(styles.root__link, className)}>
         {children}
       </Link>
