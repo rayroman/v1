@@ -70,4 +70,39 @@ $nav-height: 40px;
 .root__link {
   color: map_get(theme.$colors, "navy");
   text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+.root__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &::after {
+    content: '';
+    position: relative;
+    bottom: calc(100% + 4px);
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    transform: scale(0);
+    background-color: currentColor;
+    transition: transform 150ms ease-in-out;
+  }
+}
+
+.root__link--keyboard {
+  color: map_get(theme.$colors, "steelblue");
+
+  &::after {
+    transform: scale(1);
+    transition: transform 75ms ease-in-out;
+  }
 }
