@@ -1,0 +1,63 @@
+$nav-height: 40px;
+
+.root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $nav-height;
+  bottom: 0;
+}
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.root__container {
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+}
+
+.root__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+.root_link-container {
+  // Vertical padding is switched when the text direction is switched
+  // via the text direction prop
+  padding: 20px 0;
+}
+
+.root_link-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &::after {
+    position: absolute;
+    left: 0;
+  }
+
+  &::after {
+    top: -2px;
+    bottom: unset;
+  }
+
+  [dir="rtl"] &::after {
+    top: unset;
+    bottom: -2px;
+  }
+}
+
+.root_link-container + .root_link-container::after {
+  content: '/';
+}
+
+.root_link-container {
+  transform-origin: center;
+  transform: rotate(180deg);
+}
