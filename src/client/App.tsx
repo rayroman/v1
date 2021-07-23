@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
 import * as styles from './App.module.scss';
 import { Title } from './components/Title';
 import { Provider } from './components/Provider';
@@ -9,7 +8,7 @@ export function App(): JSX.Element {
   return (
     <Provider>
       <div className={styles.root}>
-        <SidewaysNavigation>
+        <SidewaysNavigation className={styles.root__nav}>
           <SidewaysNavLink to={{ pathname: '/', state: { target: 'info' } }}>
             about
           </SidewaysNavLink>
@@ -17,9 +16,14 @@ export function App(): JSX.Element {
             contact
           </SidewaysNavLink>
         </SidewaysNavigation>
-        <Title className={styles.root__title}>
-          Hello, world
-        </Title>
+        <div className={styles.root__body}>
+          <div className={styles.root__content}>
+            Content here
+          </div>
+          <div className={styles.root__info}>
+            Info here
+          </div>
+        </div>
       </div>
     </Provider>
   );

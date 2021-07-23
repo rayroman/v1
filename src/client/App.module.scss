@@ -1,3 +1,5 @@
+$nav-width: 60px;
+
 .root {
   background-color: #DFDFDF;
   color: #444;
@@ -6,4 +8,21 @@
 
 .root__title {
   margin: 0;
+}
+
+// Increase the specificity so that it's picked up no matter what the order
+// of loading CSS would be
+.root .root__nav {
+  width: $nav-width;
+}
+
+.root__body {
+  margin-right: 0;
+  margin-left: $nav-width;
+  width: calc(100vw - #{$nav-width});
+
+  [dir="rtl"] & {
+    margin-left: 0;
+    margin-right: $nav-width;
+  }
 }
