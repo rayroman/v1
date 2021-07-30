@@ -53,7 +53,9 @@ export function App(): JSX.Element {
               Content here
             </div>
             <div className={styles.root__info}>
-              Info here
+              <div className={styles.root__portal}>
+                Info here
+              </div>
             </div>
           </div>
           {rendered ? (
