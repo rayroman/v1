@@ -1,0 +1,70 @@
+@mixin base() {
+  h1, h2, h3, h4, h5, h6, b, strong {
+    font-weight: 600;
+  }
+
+  .rr-display1 {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+
+  .rr-h1, .rr-typo h1 {
+    font-size: 46px;
+    line-height: 56px;
+    margin: 0;
+  }
+
+  .rr-h2, .rr-typo h2 {
+    font-size: 38px;
+    line-height: 56px;
+    margin: 0;
+  }
+
+  .rr-h3, .rr-typo h3 {
+    font-size: 30px;
+    line-height: 36px;
+    margin: 0;
+  }
+
+  .rr-h4, .rr-typo h4 {
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  .rr-h5, .rr-typo h5 {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  .rr-h6, .rr-typo h6 {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0;
+  }
+
+  .rr-body1 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .rr-body2 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .rr-body3 {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .rr-weight--normal {
+    font-weight: normal !important;
+  }
+
+  .rr-weight--bold {
+    font-weight: 600 !important;
+  }
+}
