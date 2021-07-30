@@ -57,7 +57,7 @@ export function App(): JSX.Element {
             </div>
           </div>
           {rendered ? (
-            <div>
+            <div className={styles.root__navigateContent}>
               Navigate to main content
             </div>
           ) : null}

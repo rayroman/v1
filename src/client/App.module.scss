@@ -32,3 +32,19 @@ $nav-width: 60px;
   display: flex;
   min-height: 100vh;
 }
+
+.root__content {
+  width: 60%;
+}
+
+.root__info {
+  width: 40%;
+}
+
+.root__navigate-content {
+  position: fixed;
+  top: 20px;
+  left: 20vw;
+  right: 20vw;
+  background: map_get(theme.$greys, 100);
+}
