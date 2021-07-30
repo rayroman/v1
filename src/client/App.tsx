@@ -3,6 +3,7 @@ import * as styles from './App.module.scss';
 import { Provider } from './components/Provider';
 import { ILandmark, LandmarkContext, LandmarkRegistry } from './components/Landmark/Registry';
 import { SidewaysNavigation, SidewaysNavLink } from './components/Navigation/SidewaysNavigation';
+import { Info } from './components/Info';
 
 type Landmarks = {
   navigation: ILandmark | null;
@@ -54,7 +55,7 @@ export function App(): JSX.Element {
             </div>
             <div className={styles.root__info}>
               <div className={styles.root__portal}>
-                Info here
+                <Info />
               </div>
             </div>
           </div>
